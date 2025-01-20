@@ -1,0 +1,221 @@
+classDiagram
+    class Player {
+        enum ColorOption
+        + Color playerColor
+        + <<final>> ColorOption colorOption
+        + Player(ColorOption colorOption)
+        + Player copy()
+    }
+
+    class Square {
+        - Color color
+        - int rank
+        - char file
+        - boolean isEmpty
+        - Piece piece
+        + Square()
+        + set/get for attributes
+        + Square copy()
+    }
+
+    class Position {
+        - Square[][] board
+        - int positionNumber
+        + Position()
+        - void startPosition()
+        + String toStringRank(int i, int j, Game game)
+        + String toString(Game game)
+        + Position copy()
+    }
+
+    class Piece {
+        <<abstract>>
+        + Color color
+        + Piece(Game.Color color)
+        + boolean stopCheck(Square start, Square end, Game game)
+        + <<abstract>> boolean allowedMove(Square start, Square end, Game game)
+        + void makeMove(Square start, Square end, Game game)
+        + <<abstract>> boolean allowedCapture(Square start, Square end, Game game)
+        + void makeCapture(Square start, Square end, Game game)
+        - String moveNotation(Square start, Square end, Game game, boolean isCapture)
+        + <<abstract>> Piece copy()
+        + String toString()
+    }
+
+    class Rook {
+        + <<final>> int value = 5
+        + boolean isFirstMove
+        + Rook(Game.Color color)
+        + boolean checkEmptyPath(Square start, Square end, Game game)
+        + boolean allowedMove(Square start, Square end, Game game)
+        + void makeMove(Square start, Square end, Game game)
+        + boolean allowedCapture(Square start, Square end, Game game)
+        + void makeCapture(Square start, Square end, Game game)
+        + Piece copy()
+    }
+
+    class Knight {
+        + <<final>> int value = 3
+        + Knight(Game.Color color)
+        + boolean allowedMove(Square start, Square end, Game game)
+        + void makeMove(Square start, Square end, Game game)
+        + boolean allowedCapture(Square start, Square end, Game game)
+        + void makeCapture(Square start, Square end, Game game)
+        + Piece copy()
+    }
+
+    class Bishop {
+        + <<final>> int value = 3
+        + Bishop(Game.Color color)
+        + boolean checkEmptyPath(Square start, Square end, Game game)
+        + boolean allowedMove(Square start, Square end, Game game)
+        + void makeMove(Square start, Square end, Game game)
+        + boolean allowedCapture(Square start, Square end, Game game)
+        + void makeCapture(Square start, Square end, Game game)
+        + Piece copy()
+    }
+
+    class Queen {
+        + <<final>> int value = 9
+        + Queen(Game.Color color)
+        + boolean checkEmptyPath(Square start, Square end, Game game)
+        + boolean allowedMove(Square start, Square end, Game game)
+        + void makeMove(Square start, Square end, Game game)
+        + boolean allowedCapture(Square start, Square end, Game game)
+        + void makeCapture(Square start, Square end, Game game)
+        + Piece copy()
+    }
+
+    class King {
+        + <<final>> int value = 20
+        + boolean isFirstMove
+        + King(Game.Color color)
+        + boolean castleKingSide(Square start, Square end, Game game)
+        + void makeCastleKingSide(Square start, Square end, Game game)
+        + boolean castleQueenSide(Square start, Square end, Game game)
+        + void makeCastleQueenSide(Square start, Square end, Game game)
+        - boolean wouldBeInCheck(int rank, int file, Game game)
+        + boolean allowedMove(Square start, Square end, Game game)
+        + void makeMove(Square start, Square end, Game game)
+        + boolean allowedCapture(Square start, Square end, Game game)
+        + void makeCapture(Square start, Square end, Game game)
+        + Piece copy()
+    }
+
+    class Pawn {
+        + <<final>> int value = 1
+        + boolean isFirstMove
+        + Pawn(Game.Color color)
+        + boolean enPassant(Square startSquare, Game game)
+        + void promote(Square start, Square end, Game game)
+        - void handlePromotion(Square start, Square end, Game game, Position position, boolean isCapture)
+        - void updateGameAfterPromotion(Square start, Square end, Game game, Position position, Piece promotedPiece, boolean isCapture)
+        - <<static>> char getPromotedPieceNotation(Piece promotedPiece)
+        + boolean allowedMove(Square start, Square end, Game game)
+        + void makeMove(Square start, Square end, Game game)
+        + boolean allowedCapture(Square start, Square end, Game game)
+        + void makeCapture(Square start, Square end, Game game)
+        + Piece copy()
+    }
+
+    class Game {
+        enum Color
+        + List<Move> gameHistory
+        + Position currentPosition
+        + boolean whiteMoves
+        + int halfMoveClock
+        - Player me
+        - Player opponent
+        - List<Piece> meCapturedPieces
+        - List<Piece> opponentCapturedPieces
+        + Game(Player.ColorOption colorOption)
+        + Player getMe()
+        + List<Piece> getMeCapturedPieces()
+        + List<Piece> getOpponentCapturedPieces()
+        + display()
+        + boolean isCheckForWhite()
+        + boolean isCheckForBlack()
+        + boolean isCheck(Color color)
+        + boolean isCheckmateForWhite()
+        + boolean isCheckmateForBlack()
+        + boolean possibleMoveFromCheck(Color color)
+        + boolean isCheckmate(Color color)
+        + boolean isStalemateForWhite()
+        + boolean isStalemateForBlack()
+        + boolean isStalemate(Color color)
+        + boolean insufficientMaterial(Color color)
+        + boolean rule50Moves()
+        + boolean isDraw()
+        + List<Square> getPiecesOfColor(Color color)
+        - Square findKingSquare(Color kingColor)
+        + String FENNotation()
+        + Game copy()
+        + void destroy()
+    }
+
+    class App {
+        + <<static>> Game game
+        - <<static>> int gameID
+        - <<static>> int positionID
+        - <<static>> boolean isUserTurn
+        - <<static>> boolean engineMoved
+        + <<static>> JFrame gameFrame
+        - <<static>> JPanel board
+        - <<static>> JButton[][] squareButtons
+        - <<static>> Square selectedSquare = null
+        - constants
+        + main(String[] args)
+        + <<static>> void stockfishMove()
+        + <<static>> String getStockfishMove(String FEN)
+        + <<static>> void insertNewGame(String myColor)
+        + <<static>> void editEndGame(String myColor, String result)
+        + <<static>> void insertNewMove(int moveNumber, String playerTurn, String moveNotation)
+        + <<static>> void insertPlayers(String myColor, String opponentColor)
+        + <<static>> void editCapturedPieces(boolean isMyCapture, String capturedPiece)
+        + <<static>> void insertNewPosition(int positionNumber, String fenString)
+        + <<static>> void startMenu()
+        + <<static>> void selectColorMenu()
+        + <<static>> void gameFrame()
+        + <<static>> void startGame(Player.ColorOption colorOption, JFrame colorFrame)
+        + <<static>> void endGame(String result)
+        - <<static>> void update(JPanel boardPanel, JButton[][] squareButtons)
+        - <<static>> Square findKingSquare(Game.Color kingColor)
+        - <<static>> void addSquare(int i, int j, JButton[][] squareButtons, JPanel chessBoardPanel)
+        - <<static>> void addPiece(int i, int j, JButton[][] squareButtons)
+        - <<static>> void handleSquareClick(int row, int col)
+        - <<static>> void handleSelection(Square clickedSquare)
+        - <<static>> void handleAction(Square clickedSquare)
+        - <<static>> void handleMove(Square clickedSquare)
+        - <<static>> void handleCapture(Square clickedSquare)
+        - <<static>> ImageIcon getPieceIcon(Piece piece)
+        - <<static>> ImageIcon loadIcon(String resourcePath)
+        - <<static>> ImageIcon scaleIcon(ImageIcon originalIcon, JButton button)
+    }
+
+    class Stockfish {
+        - Process stockfishProcess
+        - BufferedReader reader
+        - BufferedWriter writer
+        File extractStockfishExe()
+        + boolean startEngine()
+        + void sendCommand(String command)
+        + String getOutput(int timeoutMillis)
+        + void stopEngine()
+        + String getBestMove(String fen, int depth)
+    }
+
+    Player --> Square
+    Player --> Game
+    Game --> Position
+    Game --> Piece
+    Position --> Square
+    Position --> Piece
+    Square --> Piece
+    Piece <|-- Rook
+    Piece <|-- Knight
+    Piece <|-- Bishop
+    Piece <|-- Queen
+    Piece <|-- King
+    Piece <|-- Pawn
+    App --> Game
+    App --> Stockfish

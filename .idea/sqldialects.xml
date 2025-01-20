@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/f10d67ea-2d6a-454a-9d85-378786755b78/console.sql" dialect="Derby" />
+    <file url="file://$PROJECT_DIR$/database/CreatingDatabase.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/gui/App.java" dialect="GenericSQL" />
+  </component>
+</project>
