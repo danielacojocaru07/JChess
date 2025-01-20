@@ -281,4 +281,3 @@ This project implements a chess game simulation in Java, featuring core componen
 
 ## Acknowledgments
 This project is built with Java and adheres to standard object-oriented principles for modeling chess games.
-
