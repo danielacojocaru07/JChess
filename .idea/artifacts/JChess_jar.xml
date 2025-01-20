@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="JChess:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JChess_jar</output-path>
+    <root id="archive" name="JChess.jar">
+      <element id="module-output" name="JChess" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/derby/derbyshared/10.17.1.0/derbyshared-10.17.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/derby/derbyclient/10.17.1.0/derbyclient-10.17.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/derby/derby/10.17.1.0/derby-10.17.1.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

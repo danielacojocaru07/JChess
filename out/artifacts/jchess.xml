@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>D:\University\Programming\JChess\out\artifacts\JChess_jar\JChess.jar</jar>
+  <outfile>D:\University\Programming\JChess\out\artifacts\JChess.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl></downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>true</restartOnCrash>
+  <manifest></manifest>
+  <icon>D:\University\Programming\JChess\src\main\resources\app_icon.ico</icon>
+  <jre>
+    <path>%JAVA_HOME%;%PATH%</path>
+    <requiresJdk>false</requiresJdk>
+    <requires64Bit>false</requires64Bit>
+    <minVersion></minVersion>
+    <maxVersion></maxVersion>
+  </jre>
+  <versionInfo>
+    <fileVersion>24.0.1.0</fileVersion>
+    <txtFileVersion>24.1</txtFileVersion>
+    <fileDescription>JChess Game</fileDescription>
+    <copyright>dana</copyright>
+    <productVersion>24.0.1.0</productVersion>
+    <txtProductVersion>24.1</txtProductVersion>
+    <productName>JChess</productName>
+    <companyName></companyName>
+    <internalName>jchess24.1</internalName>
+    <originalFilename>JChess.exe</originalFilename>
+    <trademarks></trademarks>
+    <language>ENGLISH_US</language>
+  </versionInfo>
+</launch4jConfig>

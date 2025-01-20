@@ -60,6 +60,14 @@ public class App {
     private static final ImageIcon WHITE_KING = loadIcon("pieces/white-king.png");
     private static final ImageIcon BLACK_KING = loadIcon("pieces/black-king.png");
 
+    private static final ImageIcon APP_ICON_ORIGINAL = loadIcon("app_icon.png");
+    private static final Image APP_ICON;
+
+    static {
+        assert APP_ICON_ORIGINAL != null;
+        APP_ICON = APP_ICON_ORIGINAL.getImage();
+    }
+
     /// Size of the chessboard (8x8).
     private static final int BOARD_SIZE = 8;
 
@@ -371,6 +379,7 @@ public class App {
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         mainFrame.setLayout(new GridLayout(3, 1));
+        mainFrame.setIconImage(APP_ICON);
 
         JLabel welcomeLabel = new JLabel("Welcome to ChessGame!", JLabel.CENTER);
         JButton startGameButton = new JButton("Start Game");
@@ -400,6 +409,7 @@ public class App {
         colorFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         colorFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         colorFrame.setLayout(new GridLayout(4, 1));
+        colorFrame.setIconImage(APP_ICON);
 
         JLabel colorLabel = new JLabel("Select the color you want to play!", JLabel.CENTER);
         JButton whiteButton = new JButton("White");
@@ -440,6 +450,7 @@ public class App {
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         gameFrame.setLayout(new BorderLayout());
+        gameFrame.setIconImage(APP_ICON);
 
         // Create the chessboard panel
         JPanel boardPanel = new JPanel(new GridLayout(BOARD_SIZE, BOARD_SIZE));
