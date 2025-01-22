@@ -1,10 +1,10 @@
 ----------------------------------------------------------------
-Mon Jan 20 19:33:34 EET 2025:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a816c00e-0194-84c6-e52f-00000363f538 
-on database directory D:\University\Programming\JChess\database with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@5a07e868 
-Loaded from file:/C:/Users/cojoc/.m2/repository/org/apache/derby/derby/10.17.1.0/derby-10.17.1.0.jar
-java.vendor=Oracle Corporation
-java.runtime.version=23.0.1+11-39
+Wed Jan 22 12:11:50 UTC 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a816c00e-0194-8ded-0cc4-000006a089d0 
+on database directory D:\University\Programming\JChess\database with class loader com.intellij.database.remote.jdbc.impl.JdbcClassLoader$JdbcClassLoaderImpl@3ac3fd8b 
+Loaded from file:/C:/Users/cojoc/AppData/Roaming/JetBrains/IntelliJIdea2024.3/jdbc-drivers/Apache%20Derby/10.17.1.0/org/apache/derby/derby/10.17.1.0/derby-10.17.1.0.jar
+java.vendor=JetBrains s.r.o.
+java.runtime.version=21.0.5+8-b631.30
 user.dir=D:\University\Programming\JChess
 os.name=Windows 11
 os.arch=amd64
